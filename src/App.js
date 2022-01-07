@@ -36,34 +36,26 @@ function App() {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {items
-                // .sort((a, b) =>
-                //   a.price === b.price
-                //     ? a.name > b.name
-                //       ? 1
-                //       : -1
-                //     : a.price - b.price
-                // )
-                .map((item, index) => {
-                  return (
-                    <Draggable
-                      key={item.name}
-                      draggableId={item.name}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <div
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          ref={provided.innerRef}
-                          id="items"
-                        >
-                          {item.name} = {item.price}
-                        </div>
-                      )}
-                    </Draggable>
-                  );
-                })}
+              {items.map((item, index) => {
+                return (
+                  <Draggable
+                    key={item.name}
+                    draggableId={item.name}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        id="items"
+                      >
+                        {item.name} = {item.price}
+                      </div>
+                    )}
+                  </Draggable>
+                );
+              })}
               {provided.placeholder}
             </ul>
           )}
